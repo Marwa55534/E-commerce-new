@@ -1,0 +1,1 @@
+<img src="{{ asset($user->image) }}" alt="{{ $user->name }}" class="img-fluid" width="50px" height="50px">
