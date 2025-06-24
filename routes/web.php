@@ -19,6 +19,10 @@ use App\Http\Controllers\Website\WishlistController;
 use App\Http\Controllers\Website\CartController;
 use App\Http\Controllers\Website\CheckoutController;
 use Illuminate\Support\Facades\Http;
+use App\Http\Controllers\Website\ContactController;
+use App\Http\Middleware\MarkNotificationAsRead;
+
+
 // Route::get('/', function () {
 //     return view('welcome'); 
 // });
@@ -77,7 +81,6 @@ Route::group(
             Route::post('website/password/reset', 'reset')->name('password.update');
         });
 
-
         Route::group(['middleware' => 'auth:web'], function () {
             Route::controller(ProfileController::class)->group(function () {
                 Route::get('website/profile', 'index')->name('website.profile.index');
@@ -91,6 +94,7 @@ Route::group(
             Route::get('website/checkout', [CheckoutController::class, 'showCheckoutPage'])->name('website.showCheckoutPage');
             Route::post('website/checkout', [CheckoutController::class, 'checkout'])->name('website.checkout');
 
+            Route::get('website/contacts', [ContactController::class,'index'])->name('website.contact.index');
 
         });
 

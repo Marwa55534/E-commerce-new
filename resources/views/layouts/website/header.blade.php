@@ -389,12 +389,12 @@
                         </li>
 
                         <li>
-                            <a href="user-profile.html">
+                            <a href="{{route('website.profile.index')}}">
                                 <span class="list-text">User Dashboard</span>
                             </a>
                         </li>
                         <li>
-                            <a href="contact-us.html">
+                            <a href="{{route('website.contact.index')}}">
                                 <span class="list-text">Contact</span>
                             </a>
                         </li>

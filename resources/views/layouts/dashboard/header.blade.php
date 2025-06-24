@@ -214,7 +214,8 @@
                     @if (class_basename($notification->type) === 'CreateOrderNotification')
                       <a href="{{route('dashboard.order.show' , $notification->data['order_id'])}}?notify_admin={{ $notification->id}}">
                     <div class="media">
-                      <div class="media-left align-self-center"><i class="ft-plus-square icon-bg-circle bg-cyan"></i></div>
+                      <div class="media-left align-self-center">
+                        <i class="ft-plus-square icon-bg-circle bg-cyan"></i></div>
                       <div class="media-body">
                         <h6 class="media-heading">{{$notification->data['message']}}</h6>
                         <p class="notification-text font-small-3 text-muted">
@@ -228,7 +229,25 @@
                       </div>
                     </div>
                   </a>
-                    @endif
+                  @elseif (class_basename($notification->type) === 'ContactNotification')
+                      <a href="{{route('dashboard.contacts.index' , $notification->data['contact_id'])}}?notify_admin={{ $notification->id}}">
+                    <div class="media">
+                      <div class="media-left align-self-center">
+                        <i class="ft-alert-triangle icon-bg-circle bg-yellow bg-darken-3"></i></div>
+                      <div class="media-body">
+                        <h6 class="media-heading">{{$notification->data['message']}}</h6>
+                        <p class="notification-text font-small-3 text-muted">
+                          Order From {{$notification->data['user_name']}} -
+                          E- {{$notification->data['email']}}
+                        </p>
+                        <small>
+                          <time class="media-meta text-muted" datetime="{{$notification->created_at}}">
+                            {{$notification->created_at->diffForhumans()}}</time>
+                        </small>
+                      </div>
+                    </div>
+                  </a>
+                  @endif
                   @empty
                       <a href="javascript:void(0)">
                     <div class="media">

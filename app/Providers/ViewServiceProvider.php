@@ -119,6 +119,22 @@ class ViewServiceProvider extends ServiceProvider
             ]);
         });
 
+        view()->composer('layouts.website.header',function($view){
+
+            $pages = Page::select('slug','title','id')->get();
+
+            $categories_children = $this->getCategoriesChildrenNavbar();
+            $categories = $this->getCategories();
+
+            view()->share([
+                'pages' => $pages,
+
+                'categories_children' => $categories_children,
+                'categories' => $categories,
+
+            ]);
+        });
+
         // get Setting And Share
         $setting = $this->firstOrCreateSetting();
 

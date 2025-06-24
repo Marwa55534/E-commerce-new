@@ -147,7 +147,7 @@ Route::group(
         });
 
         Route::group(['middleware' => 'can:contacts'] , function(){
-            Route::get('dashboard/contacts/index',[ContactController::class , 'index'])->name('dashboard.contacts.index');
+            Route::get('dashboard/contacts/index',[ContactController::class , 'index'])->name('dashboard.contacts.index')->middleware(MarkNotificationAsRead::class);
             // Route::get('contacts-reply', [ContactController::class, 'getAll'])->name('users.all');
         });
 

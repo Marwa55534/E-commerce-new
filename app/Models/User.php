@@ -34,6 +34,7 @@ class User extends Authenticatable
         'country_id',
         'governorate_id',
         'city_id',
+        'phone',
     ];
 
     /**
@@ -93,6 +94,11 @@ class User extends Authenticatable
     public function cart()
 {
     return $this->hasOne(Cart::class);
+}
+
+   public function reviews()
+{
+    return $this->hasMany(ProductPreviews::class , 'user_id');
 }
 
   

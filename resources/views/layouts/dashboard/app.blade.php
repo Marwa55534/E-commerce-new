@@ -31,9 +31,10 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
       layout = "admin";
       adminId = "{{auth('admin')->user()->id}}";
       showOrderRoute = "{{route('dashboard.order.show',':id')}}";
+      contactIndexRoute = "{{route('dashboard.contacts.index')}}"
     </script>
   @endif
-  <script src="{{asset('build/assets/app-reoLWsax.js')}}"></script>
+  <script src="{{asset('build/assets/app-BH3ptorL.js')}}"></script>
   
 @include('layouts.dashboard.script')
 

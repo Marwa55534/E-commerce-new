@@ -14,7 +14,7 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
                                 <a href="{{ route('dashboard.welcome') }}">{{ __('dashboard.home') }}</a>
-                            </li>
+                            </li> 
                             <li class="breadcrumb-item">
                                 <a href="{{ route('dashboard.orders.index') }}">{{ __('dashboard.orders') }}</a>
                             </li>
